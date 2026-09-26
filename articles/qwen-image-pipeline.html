@@ -41,7 +41,7 @@
         <div class="telemetry-grid">
           <span>Model Stack: <strong>Qwen-Image 2.1 INT8 ConvRot DiT + Qwen3-VL 8B + Qwen VAE bf16</strong></span>
           <span>Runtime: <strong>ComfyUI on Olares cluster (10.233.98.109:8188)</strong></span>
-          <span>Shared Endpoint: <strong>75ac56bb.olares.internal</strong></span>
+          <span>Shared Endpoint: <strong>[REDACTED]</strong></span>
           <span>Deliverables: <strong>2 Hermes skills (generate + edit) + 4 workflow JSONs</strong></span>
         </div>
       </div>
@@ -174,7 +174,7 @@ for node_id, node_output in history["outputs"].items():
 
         <h2>The Host-URL Migration Problem</h2>
         <p>
-          The cluster's internal address (<code>10.233.98.109:8188</code>) works from within the Olares network but isn't reachable from the broader host environment. The fix was a shared URL: <code>http://75ac56bb.olares.internal</code>. This is a one-time DNS/proxy mapping set up through Olares, and it's the canonical endpoint that both the generate and edit skills default to.
+          The cluster's internal address (<code>10.233.98.109:8188</code>) works from within the Olares network but isn't reachable from the broader host environment. The fix was a shared URL: <code>http://[REDACTED]</code>. This is a one-time DNS/proxy mapping set up through Olares, and it's the canonical endpoint that both the generate and edit skills default to.
         </p>
         <p>
           The migration itself was a one-line change in each script (<code>DEFAULT_COMFY_HOST</code>) plus a corresponding update in both <code>SKILL.md</code> files. But it exposed a design constraint worth noting: <strong>the host URL is a configuration value, not a hardcoded constant scattered through the code.</strong> Every call site reads from the same <code>DEFAULT_COMFY_HOST</code> variable, so a future migration touches exactly one line per skill.
