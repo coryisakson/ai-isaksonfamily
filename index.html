@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Applied AI Field Notes — Cory Isakson</title>
+  <meta name="description" content="Field notes, architecture dispatches, and build logs from engineering production applied AI systems.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=JetBrains+Mono:wght@400;500&family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,500;1,6..72,400&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+  <div class="container">
+    <header>
+      <a href="index.html" class="site-title">
+        <span class="pulse"></span>
+        Applied AI Field Notes
+      </a>
+      <nav>
+        <a href="index.html" class="active">Dispatches</a>
+        <a href="#channels">Channels</a>
+        <a href="about.html">About</a>
+      </nav>
+    </header>
+
+    <!-- Channels / Category Bar -->
+    <div class="channels-bar" id="channels">
+      <a href="index.html" class="channel-pill active">all <span class="count">3</span></a>
+      <a href="channel-agents.html" class="channel-pill">ch/agents-workflows <span class="count">2</span></a>
+      <a href="channel-evals.html" class="channel-pill">ch/evals-benchmarks <span class="count">1</span></a>
+    </div>
+
+    <!-- Lead / Featured Article -->
+    <article class="featured-article">
+      <div class="meta-tag">
+        <span>ch/agents-workflows</span> • <span>Sep 2026</span> • <span>8 min read</span>
+      </div>
+      <h1 class="article-title">
+        <a href="articles/autonomous-merge-reconciliation.html">Autonomous Merge Reconciliation: Building Agents That Mediate Developer PRs</a>
+      </h1>
+      <p class="article-excerpt">
+        When multi-agent coding loops run in parallel, textual git merge conflicts become a hard throughput bottleneck. Here is how we built a three-way reconciliation loop that analyzes semantic AST diffs instead of lines, resolving 84% of concurrent PR collisions autonomously.
+      </p>
+
+      <div class="system-spec">
+        <strong>Runtime Stack:</strong> Claude 3.5 Sonnet + AST-Grep + Git CLI<br>
+        <strong>Artifact:</strong> Production Gateway Hook • <strong>Status:</strong> Deployed
+      </div>
+    </article>
+
+    <!-- Recent Dispatches Grid -->
+    <div class="grid-section-title">
+      <span>RECENT DISPATCHES</span>
+      <span>CORY ISAKSON</span>
+    </div>
+
+    <div class="articles-grid">
+      <!-- Article 1 -->
+      <div class="grid-card">
+        <div>
+          <div class="meta-tag">ch/evals-benchmarks</div>
+          <h2 class="card-title">
+            <a href="articles/why-needle-haystack-fails-codebases.html">Why Needle-in-a-Haystack Benchmarks Fail on High-Density Codebases</a>
+          </h2>
+          <p class="card-desc">
+            Standard retrieval evals test recall in passive prose. When testing across deeply coupled ASTs, attention degradation happens much sooner than vendor context limits advertise.
+          </p>
+        </div>
+        <div class="card-footer">
+          <span>Sep 2026</span>
+          <span>5 min read</span>
+        </div>
+      </div>
+
+      <!-- Article 2 -->
+      <div class="grid-card">
+        <div>
+          <div class="meta-tag">ch/agents-workflows</div>
+          <h2 class="card-title">
+            <a href="articles/anti-slop-heuristic.html">Designing the 'Anti-Slop' Heuristic for AI Visual Prototypes</a>
+          </h2>
+          <p class="card-desc">
+            AI design slop has a tiny, predictable failure distribution. A diagnostic 10-point scoring method that forces generative frontend tools out of generic indigo SaaS traps.
+          </p>
+        </div>
+        <div class="card-footer">
+          <span>Sep 2026</span>
+          <span>6 min read</span>
+        </div>
+      </div>
+    </div>
+
+    <footer>
+      <div>Cory Isakson • Applied AI Field Notes</div>
+      <div>Hosted on GitHub Pages</div>
+    </footer>
+  </div>
+
+</body>
+</html>
