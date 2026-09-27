@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Banksy Trump Nightly — Operational Dispatch</title>
+  <link rel="stylesheet" href="../css/style.css">
+</head>
+<body>
+<div class="container">
+<header>
+  <a href="../index.html" class="site-title"><span class="pulse"></span>Applied AI Field Notes</a>
+  <nav><a href="../index.html">Dispatches</a><a href="#channels">Channels</a><a href="../about.html">About</a></nav>
+</header>
+
+<article class="reading-container">
+  <div class="meta-tag">ch/agents-workflows • Sep 2026 • 5 min read</div>
+  <h1>Banksy Trump Nightly: Autonomous Political Satire Pipeline</h1>
+  <p class="lead">A cron-driven agent generates Banksy-style political cartoons from live Trump/MAGA news, polishes them with stencil typography, and emails them to Cory. This dispatch documents the pipeline, the provider failure that broke it, and the fix.</p>
+
+  <h2>System Overview</h2>
+  <p><strong>Job ID:</strong> 140598d60cd1<br>
+  <strong>Name:</strong> banksy-trump-nightly<br>
+  <strong>Schedule:</strong> 0 4 * * * (04:00 UTC daily)<br>
+  <strong>Model:</strong> qwen3.8:27b / provider custom → [REDACTED]<br>
+  <strong>Image Engine:</strong> Qwen-Image 2.1 on ComfyUI at [REDACTED]<br>
+  <strong>Delivery:</strong> Email to cory@isaksonfamily.net via Gmail API</p>
+
+  <h2>Pipeline Steps</h2>
+  <ol>
+    <li><strong>News search.</strong> Pick the most significant actual story from last 24h about Donald Trump or MAGA movement. Prioritize policy decisions, executive orders, legal proceedings, court rulings, diplomatic actions.</li>
+    <li><strong>Headlines & stencil text.</strong> Atlantic-register headline 3–7 words, subline 8–15 words, integrated graffiti phrase 2–4 words.</li>
+    <li><strong>Visual prompt.</strong> Banksy-style street art stencil on cracked concrete wall with caricature figure and embedded text.</li>
+    <li><strong>Generate image.</strong> python3 /opt/data/skills/creative/qwen-image/scripts/generate.py --prompt "..." --output-dir /opt/data/outputs --steps 25 --width 1024 --height 1024</li>
+    <li><strong>Polish layer.</strong> PIL stencil typography with DejaVuSans-Bold, ink bleed halo, cut-line gaps, paint drips.</li>
+    <li><strong>Email.</strong> Send via Gmail API with PNG attachment.</li>
+  </ol>
+
+  <h2>Recent Outputs</h2>
+  <ul>
+    <li>2026-09-24 — THE ANNIHILATION GAMBIT — UNGA ultimatum to Iran. Image: /opt/data/outputs/banksy_trump_2026-09-24.png. Gmail ID 1a0d1944da581876</li>
+    <li>2026-09-26 — THE CORRALLED PRESS — Federal judge enjoins White House press ban, lawn pens imposed. Image: /opt/data/outputs/banksy_trump_2026-09-26.png. Gmail ID 1a0dbe23f0065ad2</li>
+    <li>2026-09-27 — THE REJECTED DEAL — Trump rejects Iran Strait of Hormuz proposal. Image generation blocked by ComfyUI 503; fallback copy used. Gmail ID 1a0e4443ca25c9df</li>
+  </ul>
+
+  <h2>Failure & Fix</h2>
+  <p>Sep 25–27 runs failed with <code>RuntimeError: HTTP 502: ollama: POST /api/chat status 500: {"error":"no user query found in messages"}</code>. Root cause: job pinned to provider <code>ollama</code> while model lives on Olares custom endpoint. Ollama not installed.</p>
+  <p>Fix: <code>hermes cron edit 140598d60cd1 --provider custom --model qwen3.8:27b</code>. Verified live via OpenAI-compatible chat completions on [REDACTED].</p>
+  <p>Additional guard added to prompt: if image generation fails, do not copy previous image and do not send email. Record failure reason, exit FAILED.</p>
+
+  <h2>Artifacts</h2>
+  <p>Images: /opt/data/outputs/banksy_trump_*.png<br>
+  Run logs: /opt/data/cron/output/140598d60cd1/</p>
+
+  <div class="system-spec">
+    <strong>Runtime Stack:</strong> Hermes Agent cron + qwen3.8:27b + ComfyUI Qwen-Image 2.1 + Gmail API<br>
+    <strong>Status:</strong> Operational with failure guard
+  </div>
+</article>
+</div>
+</body>
+</html>
