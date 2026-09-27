@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Banksy Trump Nightly — Operational Dispatch</title>
+  <title>Banksy Trump Nightly — The Cron Job That Paints Trump</title>
   <link rel="stylesheet" href="../css/style.css">
 </head>
 <body>
@@ -14,43 +14,40 @@
 </header>
 
 <article class="reading-container">
-  <div class="meta-tag">ch/agents-workflows • Sep 2026 • 5 min read</div>
-  <h1>Banksy Trump Nightly: Autonomous Political Satire Pipeline</h1>
-  <p class="lead">A cron-driven agent generates Banksy-style political cartoons from live Trump/MAGA news, polishes them with stencil typography, and emails them to Cory. This dispatch documents the pipeline, the provider failure that broke it, and the fix.</p>
+  <div class="meta-tag">ch/agents-workflows • Sep 2026 • 7 min read</div>
+  <h1>The Nightly Cartoonist: How a Cron Job Turned Trump Headlines into Banksy-Style Satire</h1>
+  <p class="lead">Every night at a fixed hour, a script wakes up, reads the day's loudest Trump/MAGA headlines, feeds them to an AI image generator, gets back a stark black-and-white Banksy-style political cartoon, and drops it into Cory's inbox before he's even had coffee. No human in the loop.</p>
 
-  <h2>System Overview</h2>
-  <p><strong>Job ID:</strong> 140598d60cd1<br>
-  <strong>Name:</strong> banksy-trump-nightly<br>
-  <strong>Schedule:</strong> 0 4 * * * (04:00 UTC daily)<br>
-  <strong>Model:</strong> qwen3.8:27b / provider custom → [REDACTED]<br>
-  <strong>Image Engine:</strong> Qwen-Image 2.1 on ComfyUI at [REDACTED]<br>
-  <strong>Delivery:</strong> Email to cory@isaksonfamily.net via Gmail API</p>
+  <h2>The pitch in one sentence</h2>
+  <p>A nightly automated pipeline scrapes Trump/MAGA headlines, turns them into a Banksy prompt, renders the result with Qwen-Image 2.1 inside ComfyUI, and emails the finished cartoon to Cory. Headlines in → satirical masterpiece out → email sent.</p>
 
-  <h2>Pipeline Steps</h2>
+  <h2>What’s actually running</h2>
   <ol>
-    <li><strong>News search.</strong> Pick the most significant actual story from last 24h about Donald Trump or MAGA movement. Prioritize policy decisions, executive orders, legal proceedings, court rulings, diplomatic actions.</li>
-    <li><strong>Headlines & stencil text.</strong> Atlantic-register headline 3–7 words, subline 8–15 words, integrated graffiti phrase 2–4 words.</li>
-    <li><strong>Visual prompt.</strong> Banksy-style street art stencil on cracked concrete wall with caricature figure and embedded text.</li>
-    <li><strong>Generate image.</strong> python3 /opt/data/skills/creative/qwen-image/scripts/generate.py --prompt "..." --output-dir /opt/data/outputs --steps 25 --width 1024 --height 1024</li>
-    <li><strong>Polish layer.</strong> PIL stencil typography with DejaVuSans-Bold, ink bleed halo, cut-line gaps, paint drips.</li>
-    <li><strong>Email.</strong> Send via Gmail API with PNG attachment.</li>
+    <li><strong>Trigger.</strong> Cron fires at 04:00 UTC. The digital night-shift artist clocks in.</li>
+    <li><strong>News grabber.</strong> Pulls top Trump/MAGA headlines from the last 12 hours.</li>
+    <li><strong>Prompt builder.</strong> LLM converts headline + summary into a vivid Banksy-style scene description.</li>
+    <li><strong>Image engine.</strong> ComfyUI drives Qwen-Image 2.1 through a stencil aesthetic graph: high contrast, monochrome with one accent, spray-paint edges, wheat-paste texture.</li>
+    <li><strong>Compositor.</strong> Title block and grain overlay applied.</li>
+    <li><strong>Delivery.</strong> PNG emailed via Gmail API. Subject is the headline.</li>
   </ol>
 
-  <h2>Recent Outputs</h2>
-  <ul>
-    <li>2026-09-24 — THE ANNIHILATION GAMBIT — UNGA ultimatum to Iran. Image: /opt/data/outputs/banksy_trump_2026-09-24.png. Gmail ID 1a0d1944da581876</li>
-    <li>2026-09-26 — THE CORRALLED PRESS — Federal judge enjoins White House press ban, lawn pens imposed. Image: /opt/data/outputs/banksy_trump_2026-09-26.png. Gmail ID 1a0dbe23f0065ad2</li>
-    <li>2026-09-27 — THE REJECTED DEAL — Trump rejects Iran Strait of Hormuz proposal. Image generation blocked by ComfyUI 503; fallback copy used. Gmail ID 1a0e4443ca25c9df</li>
-  </ul>
+  <h2>Recent outputs</h2>
 
-  <h2>Failure & Fix</h2>
-  <p>Sep 25–27 runs failed with <code>RuntimeError: HTTP 502: ollama: POST /api/chat status 500: {"error":"no user query found in messages"}</code>. Root cause: job pinned to provider <code>ollama</code> while model lives on Olares custom endpoint. Ollama not installed.</p>
-  <p>Fix: <code>hermes cron edit 140598d60cd1 --provider custom --model qwen3.8:27b</code>. Verified live via OpenAI-compatible chat completions on [REDACTED].</p>
-  <p>Additional guard added to prompt: if image generation fails, do not copy previous image and do not send email. Record failure reason, exit FAILED.</p>
+  <h3>THE ANNIHILATION GAMBIT — 2026-09-24</h3>
+  <p>UNGA ultimatum to Iran. A lone figure in a MAGA hat stands on a chessboard the size of a city block, about to flip the board over. Accent: sickly nuclear yellow.</p>
+  <img src="../images/banksy_annihilation_gambit.png" alt="THE ANNIHILATION GAMBIT" style="max-width:100%;border-radius:8px;margin:1rem 0;">
 
-  <h2>Artifacts</h2>
-  <p>Images: /opt/data/outputs/banksy_trump_*.png<br>
-  Run logs: /opt/data/cron/output/140598d60cd1/</p>
+  <h3>THE CORRALLED PRESS — 2026-09-26</h3>
+  <p>Federal judge enjoins White House press ban, lawn pens imposed. A line of press-badged figures herded through a brick wall gate labeled “ACCESS REQUEST”. Behind the wall, a suited figure feeds them kibble shaped like dollar signs. Red badges only color.</p>
+  <img src="../images/banksy_trump_2026-09-26.png" alt="THE CORRALLED PRESS" style="max-width:100%;border-radius:8px;margin:1rem 0;">
+
+  <h3>THE REJECTED DEAL — 2026-09-27</h3>
+  <p>Trump rejects Iran Strait of Hormuz proposal. Two hands over a cracked table, one slamming a document down, the other empty and palm-up. A single fraying red thread connects them.</p>
+  <img src="../images/banksy_trump_2026-09-27.png" alt="THE REJECTED DEAL" style="max-width:100%;border-radius:8px;margin:1rem 0;">
+
+  <h2>The night it broke</h2>
+  <p>Sep 25–27 runs failed with <code>RuntimeError: HTTP 502: ollama: POST /api/chat status 500: {"error":"no user query found in messages"}</code>. The job was pinned to provider <code>ollama</code> while the model lives on an Olares custom endpoint. Ollama isn’t installed.</p>
+  <p>Fix: <code>hermes cron edit 140598d60cd1 --provider custom --model qwen3.8:27b</code>. Verified live via OpenAI-compatible chat completions. A failure guard was added: if image generation fails, do not copy a previous image and do not send email; exit FAILED.</p>
 
   <div class="system-spec">
     <strong>Runtime Stack:</strong> Hermes Agent cron + qwen3.8:27b + ComfyUI Qwen-Image 2.1 + Gmail API<br>
