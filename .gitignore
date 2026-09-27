@@ -1,5 +1,5 @@
 # Large generated media (e.g. Banksy nightly output) — keep out of the static site repo
-images/*.png
-images/*.jpg
-images/*.jpeg
-images/*.webp
+# images/*.png
+# images/*.jpg
+# images/*.jpeg
+# images/*.webp
