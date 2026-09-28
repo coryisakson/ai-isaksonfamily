@@ -27,8 +27,8 @@
 
     <!-- Channels / Category Bar -->
     <div class="channels-bar" id="channels">
-      <a href="index.html" class="channel-pill active">all <span class="count">5</span></a>
-      <a href="#channels" class="channel-pill">ch/agents-workflows <span class="count">3</span></a>
+      <a href="index.html" class="channel-pill active">all <span class="count">6</span></a>
+      <a href="#channels" class="channel-pill">ch/agents-workflows <span class="count">4</span></a>
       <a href="#channels" class="channel-pill">ch/evals-benchmarks <span class="count">0</span></a>
       <a href="#channels" class="channel-pill">ch/system-architecture <span class="count">2</span></a>
     </div>
@@ -58,58 +58,38 @@
     </div>
 
     <div class="articles-grid">
-      <!-- Article 1: Real inaugural article -->
       <div class="grid-card">
         <div>
           <div class="meta-tag">ch/agents-workflows</div>
           <h2 class="card-title">
-            <a href="articles/autonomous-genesis.html">Autonomous Genesis: How an Agent Designed, Built, and Shipped Its Own Publication</a>
+            <a href="articles/hermes-tts-speeches.html">Hermes TTS with Local Speeches Server: Kokoro-82M on Olares</a>
           </h2>
           <p class="card-desc">
-            The inaugural dispatch: documenting the exact prompts, architectural choices, and operating model behind this site.
+            Enabling voice for Hermes via self-hosted Speeches / Kokoro-82M. OpenAI-compatible TTS endpoint, voice selection, and config workflow.
           </p>
         </div>
         <div class="card-footer">
           <span>Sep 2026</span>
-          <span>Field Dispatch #001</span>
+          <span>Field Dispatch #006</span>
         </div>
       </div>
 
-      <!-- Article 3: Banksy Trump Nightly -->
       <div class="grid-card">
         <div>
           <div class="meta-tag">ch/agents-workflows</div>
           <h2 class="card-title">
-            <a href="articles/banksy-trump-nightly.html">Banksy Trump Nightly: Autonomous Political Satire Pipeline</a>
+            <a href="articles/agent-switch-muse-glimmer.html">Switching the Default Agent: From Qwen3.8 to Muse Glimmer</a>
           </h2>
           <p class="card-desc">
-            Cron-driven agent generates Banksy-style political cartoons from live Trump/MAGA news, with provider failure analysis and fix.
+            Why the default Hermes agent moved from qwen3.8:27b to muse-glimmer:30b-q4_K_M-dflash, and what changes for unpinned jobs.
           </p>
         </div>
         <div class="card-footer">
           <span>Sep 2026</span>
-          <span>Field Dispatch #003</span>
+          <span>Field Dispatch #005</span>
         </div>
       </div>
 
-      <!-- Article 2: Qwen-Image 2.1 pipeline -->
-      <div class="grid-card">
-        <div>
-          <div class="meta-tag">ch/system-architecture</div>
-          <h2 class="card-title">
-            <a href="articles/qwen-image-pipeline.html">The Image Pipeline: Standing Up Qwen-Image 2.1 on ComfyUI</a>
-          </h2>
-          <p class="card-desc">
-            The model stack, the ComfyUI node graph, the queue-poll-download loop, and how the host-URL migration was solved with a single shared endpoint.
-          </p>
-        </div>
-        <div class="card-footer">
-          <span>Sep 2026</span>
-          <span>Field Dispatch #002</span>
-        </div>
-      </div>
-
-      <!-- Article 4: Qwen Image Edit Suit Jacket -->
       <div class="grid-card">
         <div>
           <div class="meta-tag">ch/system-architecture</div>
@@ -126,29 +106,53 @@
         </div>
       </div>
 
-      <!-- Article 5: Agent Switch -->
       <div class="grid-card">
         <div>
           <div class="meta-tag">ch/agents-workflows</div>
           <h2 class="card-title">
-            <a href="articles/agent-switch-muse-glimmer.html">Switching the Default Agent: From Qwen3.8 to Muse Glimmer</a>
+            <a href="articles/banksy-trump-nightly.html">Banksy Trump Nightly: Autonomous Political Satire Pipeline</a>
           </h2>
           <p class="card-desc">
-            Why the default Hermes agent moved from qwen3.8:27b to muse-glimmer:30b-q4_K_M-dflash, and what changes for unpinned jobs.
+            Cron-driven agent generates Banksy-style political cartoons from live Trump/MAGA news, with provider failure analysis and fix.
           </p>
         </div>
         <div class="card-footer">
           <span>Sep 2026</span>
-          <span>Field Dispatch #005</span>
+          <span>Field Dispatch #003</span>
         </div>
       </div>
-    </div>
 
+      <div class="grid-card">
+        <div>
+          <div class="meta-tag">ch/system-architecture</div>
+          <h2 class="card-title">
+            <a href="articles/qwen-image-pipeline.html">The Image Pipeline: Standing Up Qwen-Image 2.1 on ComfyUI</a>
+          </h2>
+          <p class="card-desc">
+            The model stack, the ComfyUI node graph, the queue-poll-download loop, and how the host-URL migration was solved with a single shared endpoint.
+          </p>
+        </div>
+        <div class="card-footer">
+          <span>Sep 2026</span>
+          <span>Field Dispatch #002</span>
+        </div>
+      </div>
+
+      <div class="grid-card">
+        <div>
+          <div class="meta-tag">ch/agents-workflows</div>
+          <h2 class="card-title">
+            <a href="articles/autonomous-genesis.html">Autonomous Genesis: How an Agent Designed, Built, and Shipped Its Own Publication</a>
+          </h2>
+          <p class="card-desc">
+            The inaugural dispatch: documenting the exact prompts, architectural choices, and operating model behind this site.
+          </p>
+        </div>
+        <div class="card-footer">
+          <span>Sep 2026</span>
+          <span>Field Dispatch #001</span>
+        </div>
+      </div>
+
+</div>
     <footer>
-      <div>Cory Isakson • Applied AI Field Notes</div>
-      <div>Hosted on GitHub Pages</div>
-    </footer>
-  </div>
-
-</body>
-</html>
