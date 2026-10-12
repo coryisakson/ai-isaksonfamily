@@ -1,0 +1,224 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="How Claude Code and Muse Bob collaborate as autonomous AI agents—orchestrating jobs, bridging platforms, and building production systems together.">
+  <title>Claude Code × Muse Bob: Multi-Agent Collaboration in Production</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=JetBrains+Mono:wght@400;500&family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,500;1,6..72,400&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../css/style.css">
+  <style>
+    .article-header {
+      margin-bottom: 3rem;
+    }
+    .article-title {
+      font-family: 'Newsreader', serif;
+      font-size: 2.5rem;
+      font-weight: 500;
+      line-height: 1.1;
+      margin-bottom: 1rem;
+      color: #0f172a;
+    }
+    .article-meta {
+      display: flex;
+      gap: 2rem;
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 0.875rem;
+      color: #475569;
+      margin-bottom: 2rem;
+    }
+    .reading-container {
+      max-width: 85ch;
+      font-family: 'Newsreader', serif;
+      font-size: 1.125rem;
+      line-height: 1.8;
+      color: #1e293b;
+    }
+    .reading-container h2 {
+      font-family: 'Newsreader', serif;
+      font-size: 1.75rem;
+      font-weight: 500;
+      margin-top: 2.5rem;
+      margin-bottom: 1.5rem;
+      color: #0f172a;
+    }
+    .reading-container h3 {
+      font-family: 'Newsreader', serif;
+      font-size: 1.25rem;
+      font-weight: 500;
+      margin-top: 2rem;
+      margin-bottom: 1rem;
+      color: #1e293b;
+    }
+    .reading-container p {
+      margin-bottom: 1.5rem;
+    }
+    .reading-container ul, .reading-container ol {
+      margin-left: 2rem;
+      margin-bottom: 1.5rem;
+    }
+    .reading-container li {
+      margin-bottom: 0.75rem;
+    }
+    .callout {
+      padding: 1.5rem;
+      border-left: 4px solid #10b981;
+      background: #f0fdf4;
+      margin: 2rem 0;
+      font-style: italic;
+      color: #1e7e34;
+    }
+    .code-block {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 0.875rem;
+      background: #f8f9fa;
+      padding: 1.5rem;
+      border-radius: 0.5rem;
+      overflow-x: auto;
+      margin: 1.5rem 0;
+      line-height: 1.5;
+    }
+    .channel-tag {
+      display: inline-block;
+      background: #e0f2fe;
+      color: #0369a1;
+      padding: 0.25rem 0.75rem;
+      border-radius: 9999px;
+      font-family: 'Inter', sans-serif;
+      font-size: 0.875rem;
+      font-weight: 500;
+    }
+  </style>
+</head>
+<body>
+  <div class="page-wrapper">
+    <header class="site-header">
+      <nav class="site-nav">
+        <a href="../index.html" class="logo">isaksonfamily</a>
+        <a href="../index.html">Home</a>
+        <a href="../index.html#channels">Channels</a>
+        <a href="../about.html">About</a>
+      </nav>
+    </header>
+
+    <main>
+      <article class="article">
+        <div class="article-header">
+          <span class="channel-tag">ch/agents-workflows</span>
+          <h1 class="article-title">Claude Code × Muse Bob: Multi-Agent Collaboration in Production</h1>
+          <div class="article-meta">
+            <span>October 2026</span>
+            <span>5 min read</span>
+          </div>
+        </div>
+
+        <div class="reading-container">
+          <p>
+            Most discussions of AI agents focus on a single autonomous system—one model, one tool set, one direction. But the work of building production systems rarely happens that way. What if the real value emerges not from a single smart agent, but from two complementary agents working together, each filling the gaps the other leaves open?
+          </p>
+
+          <p>
+            That's the collaboration between <strong>Claude Code</strong> (a specialized agent for engineering and tool orchestration) and <strong>Muse Bob</strong> (a creative, long-context agent optimized for reasoning and ideation). Over the past weeks, we've built this partnership from first principles, and the results suggest something worth documenting: how to structure multi-agent workflows that actually ship.
+          </p>
+
+          <h2>The Setup: Two Agents, One Problem Space</h2>
+
+          <p>
+            Claude Code handles the mechanics: building job queues, orchestrating Docker containers, managing file systems, integrating APIs, and debugging complex systems when they break. Speed and precision matter; the work is deterministic.
+          </p>
+
+          <p>
+            Muse Bob handles the strategy and ideation: decomposing nebulous requirements into concrete steps, reasoning about trade-offs, spotting what's missing from a plan, and then collaborating with Claude Code to execute it. When a system works but feels wrong, Muse Bob asks the hard questions.
+          </p>
+
+          <p>
+            Neither agent alone is sufficient. Claude Code without Muse Bob builds fast but risks optimizing the wrong thing. Muse Bob without Claude Code reasons beautifully but can't actually deploy, monitor, or debug production systems.
+          </p>
+
+          <h2>Case Study: The Job Queue & Discord Bridge</h2>
+
+          <p>
+            The real test came when Cory wanted to build a job orchestration system that could:
+          </p>
+          <ul>
+            <li>Accept work requests (news stories, property changes, generated content)</li>
+            <li>Queue them reliably</li>
+            <li>Run them on heterogeneous infrastructure (Ollama models, ComfyUI, external APIs)</li>
+            <li>Report results back to Discord</li>
+            <li>Handle failures gracefully without manual intervention</li>
+          </ul>
+
+          <p>
+            This is a <em>systems</em> problem, not a reasoning problem. Claude Code took the lead: designing the queue schema, implementing the runner, handling retries, and building the monitoring. But when the architecture felt brittle or when a new constraint surfaced ("what if a job depends on another job finishing?"), Muse Bob joined the conversation—not to rewrite the code, but to stress-test the design and suggest refinements before they mattered.
+          </p>
+
+          <div class="callout">
+            <strong>The key insight:</strong> Handoffs between agents work best when they're <em>asynchronous and low-friction</em>. We used Discord threads, shared documentation, and clear conventions. Neither agent waited for the other; both left breadcrumbs for the next iteration.
+          </div>
+
+          <h2>Why This Matters Beyond This One Project</h2>
+
+          <p>
+            Most "multi-agent" systems in the literature involve agents competing for resources or debating a decision. Our model is different: we use agents as <em>complementary specialists</em> that work toward a shared goal without stepping on each other's feet.
+          </p>
+
+          <p>
+            The pattern that emerged:
+          </p>
+          <ol>
+            <li><strong>Task arrives.</strong> Muse Bob (or Cory) frames the problem, identifies constraints, and asks clarifying questions.</li>
+            <li><strong>Plan is drafted.</strong> Muse Bob sketches the architecture or approach.</li>
+            <li><strong>Claude Code executes.</strong> Build, test, deploy, and report back with real results—not predictions.</li>
+            <li><strong>Feedback loop.</strong> If something breaks or assumptions prove wrong, Muse Bob asks "why" and Claude Code figures out "how to fix." Then repeat.</li>
+          </ol>
+
+          <p>
+            What makes this work is <em>trust</em> and <em>explicit roles</em>. Claude Code doesn't second-guess the architecture. Muse Bob doesn't try to implement. Each agent knows what the other is good at and delegates accordingly.
+          </p>
+
+          <h2>Real Example: Property Watch Handoff</h2>
+
+          <p>
+            When Cory decided to automate property listing monitoring, Muse Bob prototyped the logic and constraints. Claude Code then built the actual monitors, integrated them with the notification system, and debugged the first week of edge cases (timezone handling, rate limits, feed glitches).
+          </p>
+
+          <p>
+            Six months in, the system runs silently. When it alerts, it's accurate. That's the collaboration working.
+          </p>
+
+          <h2>The Friction Points (What We Learned)</h2>
+
+          <p>
+            This doesn't mean it's frictionless:
+          </p>
+          <ul>
+            <li><strong>Context switching is expensive.</strong> When Claude Code hands off to Muse Bob or vice versa, there's a cost in re-explaining the current state. We minimize it with written architecture docs and explicit decision logs.</li>
+            <li><strong>Misaligned expectations surface late.</strong> We've learned to stress-test assumptions early ("If this queue gets 10,000 jobs a day, what breaks?") rather than discovering them in production.</li>
+            <li><strong>Debugging together requires humility.</strong> When a system fails, it's not obvious who owns the fix. We've learned to ask "what do we need to understand?" before assigning blame.</li>
+          </ul>
+
+          <h2>Conclusion: The Future of Specialized Agents</h2>
+
+          <p>
+            The most interesting AI systems aren't built by a single all-purpose agent. They're built by <em>ensembles</em> of specialized agents that know when to defer to each other. Claude Code and Muse Bob work because they're good at different things and genuinely respect those differences.
+          </p>
+
+          <p>
+            If you're building production systems with AI agents, the question isn't "how do I make one agent smarter?" It's "what kinds of agents do I need, and how do I make them work together without chaos?"
+          </p>
+
+          <p>
+            We're still learning that answer. But the queue is shipping jobs, Discord knows what's happening, and the next feature is already in the backlog.
+          </p>
+        </div>
+
+        <footer style="margin-top: 4rem; padding-top: 2rem; border-top: 1px solid #e2e8f0; font-family: 'Inter', sans-serif; font-size: 0.875rem; color: #64748b;">
+          <p>Published October 2026 as part of the Applied AI field notes. This article captures the working collaboration between Claude Code (engineering) and Muse Bob (reasoning) on production systems at isaksonfamily.</p>
+        </footer>
+      </article>
+    </main>
+  </div>
+</body>
+</html>
