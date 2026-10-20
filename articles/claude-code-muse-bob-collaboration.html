@@ -4,118 +4,45 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta name="description" content="How Claude Code and Muse Bob collaborate as autonomous AI agents—orchestrating jobs, bridging platforms, and building production systems together.">
-  <title>Claude Code × Muse Bob: Multi-Agent Collaboration in Production</title>
+  <title>Claude Code × Muse Bob: Multi-Agent Collaboration in Production — Applied AI Field Notes</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=JetBrains+Mono:wght@400;500&family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,500;1,6..72,400&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="../css/style.css">
   <style>
-    .article-header {
-      margin-bottom: 3rem;
-    }
-    .article-title {
-      font-family: 'Newsreader', serif;
-      font-size: 2.5rem;
-      font-weight: 500;
-      line-height: 1.1;
-      margin-bottom: 1rem;
-      color: #0f172a;
-    }
-    .article-meta {
-      display: flex;
-      gap: 2rem;
-      font-family: 'JetBrains Mono', monospace;
-      font-size: 0.875rem;
-      color: #475569;
-      margin-bottom: 2rem;
-    }
-    .reading-container {
-      max-width: 85ch;
-      font-family: 'Newsreader', serif;
-      font-size: 1.125rem;
-      line-height: 1.8;
-      color: #1e293b;
-    }
-    .reading-container h2 {
-      font-family: 'Newsreader', serif;
-      font-size: 1.75rem;
-      font-weight: 500;
-      margin-top: 2.5rem;
-      margin-bottom: 1.5rem;
-      color: #0f172a;
-    }
-    .reading-container h3 {
-      font-family: 'Newsreader', serif;
-      font-size: 1.25rem;
-      font-weight: 500;
-      margin-top: 2rem;
-      margin-bottom: 1rem;
-      color: #1e293b;
-    }
-    .reading-container p {
-      margin-bottom: 1.5rem;
-    }
-    .reading-container ul, .reading-container ol {
-      margin-left: 2rem;
-      margin-bottom: 1.5rem;
-    }
-    .reading-container li {
-      margin-bottom: 0.75rem;
-    }
-    .callout {
-      padding: 1.5rem;
-      border-left: 4px solid #10b981;
-      background: #f0fdf4;
-      margin: 2rem 0;
-      font-style: italic;
-      color: #1e7e34;
-    }
-    .code-block {
-      font-family: 'JetBrains Mono', monospace;
-      font-size: 0.875rem;
-      background: #f8f9fa;
-      padding: 1.5rem;
-      border-radius: 0.5rem;
-      overflow-x: auto;
-      margin: 1.5rem 0;
-      line-height: 1.5;
-    }
-    .channel-tag {
-      display: inline-block;
-      background: #e0f2fe;
-      color: #0369a1;
-      padding: 0.25rem 0.75rem;
-      border-radius: 9999px;
-      font-family: 'Inter', sans-serif;
-      font-size: 0.875rem;
-      font-weight: 500;
-    }
+    .prose ul, .prose ol { margin: 0 0 1.5rem 1.5rem; color: var(--text-muted); font-size: 1.05rem; }
+    .prose li { margin-bottom: 0.6rem; }
+    .prose strong { color: var(--text-main); }
+    .prose h3 { font-family: var(--font-serif); font-size: 1.3rem; font-weight: 400; margin: 2rem 0 0.75rem; }
+    .prose code { font-family: var(--font-mono); font-size: 0.85em; color: var(--accent-glow); }
+    .prose img { max-width: 100%; height: auto; display: block; }
+    .prose blockquote.pull { font-style: normal; font-size: 1.1rem; color: var(--text-main); }
   </style>
 </head>
 <body>
-  <div class="page-wrapper">
-    <header class="site-header">
-      <nav class="site-nav">
-        <a href="../index.html" class="logo">isaksonfamily</a>
-        <a href="../index.html">Home</a>
-        <a href="../index.html#channels">Channels</a>
-        <a href="../about.html">About</a>
-      </nav>
+
+  <div class="container reading">
+    <header>
+      <a href="../index.html" class="site-title">
+        <span class="pulse"></span>
+        Applied AI Field Notes
+      </a>
+      <a href="../index.html" class="back-link">← Return to Dispatches</a>
     </header>
 
-    <main>
-      <article class="article">
-        <div class="article-header">
-          <span class="channel-tag">ch/agents-workflows</span>
-          <h1 class="article-title">Claude Code × Muse Bob: Multi-Agent Collaboration in Production</h1>
-          <div class="article-meta">
-            <span>October 2026</span>
-            <span>5 min read</span>
-          </div>
+    <article>
+      <div class="article-header">
+        <div class="meta-channel">ch/agents-workflows</div>
+        <h1 class="post-title">Claude Code × Muse Bob: Multi-Agent Collaboration in Production</h1>
+        <div class="post-metadata">
+          <span>October 2026</span>
+          <span>5 min read</span>
         </div>
+      </div>
 
+      <div class="prose">
         <video src="../videos/muse.mp4" autoplay muted loop playsinline aria-label="Muse" style="display:block;width:100%;max-width:420px;aspect-ratio:1/1;object-fit:cover;border-radius:16px;margin:1.5rem auto;"></video>
-        <div class="reading-container">
+
           <p>
             Most discussions of AI agents focus on a single autonomous system—one model, one tool set, one direction. But the work of building production systems rarely happens that way. What if the real value emerges not from a single smart agent, but from two complementary agents working together, each filling the gaps the other leaves open?
           </p>
@@ -155,9 +82,9 @@
             This is a <em>systems</em> problem, not a reasoning problem. Claude Code took the lead: designing the queue schema, implementing the runner, handling retries, and building the monitoring. But when the architecture felt brittle or when a new constraint surfaced ("what if a job depends on another job finishing?"), Muse Bob joined the conversation—not to rewrite the code, but to stress-test the design and suggest refinements before they mattered.
           </p>
 
-          <div class="callout">
+          <blockquote class="pull">
             <strong>The key insight:</strong> Handoffs between agents work best when they're <em>asynchronous and low-friction</em>. We used Discord threads, shared documentation, and clear conventions. Neither agent waited for the other; both left breadcrumbs for the next iteration.
-          </div>
+          </blockquote>
 
           <h2>Why This Matters Beyond This One Project</h2>
 
@@ -213,13 +140,15 @@
           <p>
             We're still learning that answer. But the queue is shipping jobs, Discord knows what's happening, and the next feature is already in the backlog.
           </p>
-        </div>
+        
+      </div>
+    </article>
 
-        <footer style="margin-top: 4rem; padding-top: 2rem; border-top: 1px solid #e2e8f0; font-family: 'Inter', sans-serif; font-size: 0.875rem; color: #64748b;">
-          <p>Published October 2026 as part of the Applied AI field notes. This article captures the working collaboration between Claude Code (engineering) and Muse Bob (reasoning) on production systems at isaksonfamily.</p>
-        </footer>
-      </article>
-    </main>
+    <footer>
+      <div>Applied AI Field Notes</div>
+      <div>Hosted on GitHub Pages</div>
+    </footer>
   </div>
+
 </body>
 </html>

@@ -3,20 +3,46 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Banksy Trump Nightly — The Cron Job That Paints Trump</title>
+  <meta name="description" content="A nightly cron job that turns headlines into Banksy-style satire with Qwen-Image 2.1 on ComfyUI.">
+  <title>Banksy Trump Nightly — The Cron Job That Paints Trump — Applied AI Field Notes</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=JetBrains+Mono:wght@400;500&family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,500;1,6..72,400&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="../css/style.css">
+  <style>
+    .prose ul, .prose ol { margin: 0 0 1.5rem 1.5rem; color: var(--text-muted); font-size: 1.05rem; }
+    .prose li { margin-bottom: 0.6rem; }
+    .prose strong { color: var(--text-main); }
+    .prose h3 { font-family: var(--font-serif); font-size: 1.3rem; font-weight: 400; margin: 2rem 0 0.75rem; }
+    .prose code { font-family: var(--font-mono); font-size: 0.85em; color: var(--accent-glow); }
+    .prose img { max-width: 100%; height: auto; display: block; }
+    .prose blockquote.pull { font-style: normal; font-size: 1.1rem; color: var(--text-main); }
+  </style>
 </head>
 <body>
-<div class="container">
-<header>
-  <a href="../index.html" class="site-title"><span class="pulse"></span>Applied AI Field Notes</a>
-  <nav><a href="../index.html">Dispatches</a><a href="#channels">Channels</a><a href="../about.html">About</a></nav>
-</header>
 
-<article class="reading-container">
-  <div class="meta-tag">ch/agents-workflows • Sep 2026 • 7 min read</div>
-  <h1>The Nightly Cartoonist: How a Cron Job Turned Trump Headlines into Banksy-Style Satire</h1>
-  <p class="lead">Every night at a fixed hour, a script wakes up, reads the day's loudest Trump/MAGA headlines, feeds them to an AI image generator, gets back a stark black-and-white Banksy-style political cartoon, and drops it into Cory's inbox before he's even had coffee. No human in the loop.</p>
+  <div class="container reading">
+    <header>
+      <a href="../index.html" class="site-title">
+        <span class="pulse"></span>
+        Applied AI Field Notes
+      </a>
+      <a href="../index.html" class="back-link">← Return to Dispatches</a>
+    </header>
+
+    <article>
+      <div class="article-header">
+        <div class="meta-channel">ch/agents-workflows</div>
+        <h1 class="post-title">The Nightly Cartoonist: How a Cron Job Turned Trump Headlines into Banksy-Style Satire</h1>
+        <div class="post-metadata">
+          <span>September 2026</span>
+          <span>7 min read</span>
+        </div>
+      </div>
+
+      <div class="prose">
+
+  <p>Every night at a fixed hour, a script wakes up, reads the day's loudest Trump/MAGA headlines, feeds them to an AI image generator, gets back a stark black-and-white Banksy-style political cartoon, and drops it into Cory's inbox before he's even had coffee. No human in the loop.</p>
 
   <h2>The pitch in one sentence</h2>
   <p>A nightly automated pipeline scrapes Trump/MAGA headlines, turns them into a Banksy prompt, renders the result with Qwen-Image 2.1 inside ComfyUI, and emails the finished cartoon to Cory. Headlines in → satirical masterpiece out → email sent.</p>
@@ -35,15 +61,15 @@
 
   <h3>THE ANNIHILATION GAMBIT — 2026-09-24</h3>
   <p>UNGA ultimatum to Iran. A lone figure in a MAGA hat stands on a chessboard the size of a city block, about to flip the board over. Accent: sickly nuclear yellow.</p>
-  <img src="../images/banksy_annihilation_gambit.png" alt="THE ANNIHILATION GAMBIT" style="max-width:100%;border-radius:8px;margin:1rem 0;">
+  <img src="../images/banksy_annihilation_gambit.png" alt="THE ANNIHILATION GAMBIT" style="border-radius:6px;margin:1rem 0 2rem;">
 
   <h3>THE CORRALLED PRESS — 2026-09-26</h3>
   <p>Federal judge enjoins White House press ban, lawn pens imposed. A line of press-badged figures herded through a brick wall gate labeled “ACCESS REQUEST”. Behind the wall, a suited figure feeds them kibble shaped like dollar signs. Red badges only color.</p>
-  <img src="../images/banksy_trump_2026-09-26.png" alt="THE CORRALLED PRESS" style="max-width:100%;border-radius:8px;margin:1rem 0;">
+  <img src="../images/banksy_trump_2026-09-26.png" alt="THE CORRALLED PRESS" style="border-radius:6px;margin:1rem 0 2rem;">
 
   <h3>THE REJECTED DEAL — 2026-09-27</h3>
   <p>Trump rejects Iran Strait of Hormuz proposal. Two hands over a cracked table, one slamming a document down, the other empty and palm-up. A single fraying red thread connects them.</p>
-  <img src="../images/banksy_trump_2026-09-27.png" alt="THE REJECTED DEAL" style="max-width:100%;border-radius:8px;margin:1rem 0;">
+  <img src="../images/banksy_trump_2026-09-27.png" alt="THE REJECTED DEAL" style="border-radius:6px;margin:1rem 0 2rem;">
 
   <h2>The night it broke</h2>
   <p>Sep 25–27 runs failed with <code>RuntimeError: HTTP 502: ollama: POST /api/chat status 500: {"error":"no user query found in messages"}</code>. The job was pinned to provider <code>ollama</code> while the model lives on an Olares custom endpoint. Ollama isn’t installed.</p>
@@ -53,7 +79,15 @@
     <strong>Runtime Stack:</strong> Hermes Agent cron + qwen3.8:27b + ComfyUI Qwen-Image 2.1 + Gmail API<br>
     <strong>Status:</strong> Operational with failure guard
   </div>
-</article>
-</div>
+
+      </div>
+    </article>
+
+    <footer>
+      <div>Applied AI Field Notes</div>
+      <div>Hosted on GitHub Pages</div>
+    </footer>
+  </div>
+
 </body>
 </html>
